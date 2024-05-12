@@ -6,5 +6,10 @@ The theme for this jam is: **AQUA**
 
 Contributors:
 - Bobby - Design
-- Jack - Art https://github.com/misteryack
-- Lewis - Code https://github.com/Konomira
+- Jack - Art
+- Lewis - Code
+
+Assets used:
+- Font https://www.fontspace.com/pixel-emulator-font-f21507
+
+All other assets have been created during the jam by our team
