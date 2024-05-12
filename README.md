@@ -6,5 +6,5 @@ The theme for this jam is: **AQUA**
 
 Contributors:
 - Bobby - Design
-- Jack - Art
+- Jack - Art https://github.com/misteryack
 - Lewis - Code https://github.com/Konomira
