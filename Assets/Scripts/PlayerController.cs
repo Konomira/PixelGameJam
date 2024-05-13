@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private bool facingRight = true;
 
+    public Material shadow;
+
     private void Update()
     {
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -62,5 +64,45 @@ public class PlayerController : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    public void EnableShadow()
+    {
+        StartCoroutine(EnableShadowRoutine());
+    }
+
+    private IEnumerator EnableShadowRoutine()
+    {
+        var time = 0f;
+        var color = shadow.color;
+        while(time <= 0.2f)
+        {
+            color.a = Mathf.Lerp(0, 1, time / 0.2f);
+            shadow.color = color;
+            time += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield break;
+    }
+
+    public void DisableShadow()
+    {
+        StartCoroutine(DisableShadowRoutine());
+    }
+
+    private IEnumerator DisableShadowRoutine()
+    {
+        var time = 0f;
+        var color = shadow.color;
+        while (time <= 0.2f)
+        {
+            color.a = Mathf.Lerp(1, 0, time / 0.2f);
+            shadow.color = color;
+            time += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        yield break;
     }
 }
