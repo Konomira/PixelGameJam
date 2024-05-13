@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
@@ -16,6 +17,7 @@ public class MenuButton : MonoBehaviour
         controller = GetComponentInParent<MenuController>();
         button.onClick.AddListener(OnClick);
     }
+
     public void Highlight()
     {
         var rt = GetComponent<RectTransform>();
@@ -33,4 +35,5 @@ public class MenuButton : MonoBehaviour
         controller.nextScene = nextSceneName;
         controller.Close();
     }
+
 }

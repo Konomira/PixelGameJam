@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,16 +13,37 @@ public class MenuController : MonoBehaviour
     public AudioClip open;
     public AudioClip close;
     public AudioClip[] notes;
+
+    public Action<MenuButton> OnHoverEnter;
     private void Awake()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        OnHoverEnter += HoverEnter;
     }
 
     private void Start()
     {
         selectedButton = menuButtons[0];
         selectedButton.Highlight();
+    }
+
+    private void HoverEnter(MenuButton button)
+    {
+        var index = menuButtons.IndexOf(button);
+
+        foreach(var b in menuButtons)
+        {
+            b.Unhighlight();
+        }
+
+        menuButtons[index].Highlight();
+        selectedButton = menuButtons[index];
+
+        if (notes.Length > index + 1)
+        {
+            audioSource.PlayOneShot(notes[index]);
+        }
     }
 
     private void Update()
