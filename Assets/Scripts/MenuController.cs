@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour
     public AudioClip open;
     public AudioClip close;
     public AudioClip[] notes;
-    private void OnValidate()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();

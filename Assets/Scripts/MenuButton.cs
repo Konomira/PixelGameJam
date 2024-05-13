@@ -9,18 +9,13 @@ public class MenuButton : MonoBehaviour
     public string nextSceneName;
 
     private MenuController controller;
-    private void OnValidate()
+    private void Awake()
     {
         size = GetComponent<RectTransform>().sizeDelta;
         button = GetComponent<Button>();
         controller = GetComponentInParent<MenuController>();
-    }
-
-    private void Awake()
-    {
         button.onClick.AddListener(OnClick);
     }
-
     public void Highlight()
     {
         var rt = GetComponent<RectTransform>();
